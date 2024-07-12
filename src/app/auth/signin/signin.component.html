@@ -4,12 +4,36 @@
     </div>
     <div class="mb-3">
         <label class="form-label">Email</label>
-        <input class="form-control" placeholder="votre email ici" [(ngModel)]="utilisateur.email" name="email" type="email">
-    </div>
-    <div class="mb-3">
+        <input
+          class="form-control"
+          placeholder="votre email ici"
+          #email="ngModel"
+          [(ngModel)]="utilisateur.email"
+          name="email"
+          required
+          type="email"
+        />
+        <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+            <div *ngIf="email.errors && email.errors['required']">le email est obligatoire</div>
+           
+        </div>
+      </div>
+      <div class="mb-3">
         <label class="form-label">Password</label>
-        <input class="form-control" placeholder="votre mot de passe ici" name="password"[(ngModel)]="utilisateur.password" type="password">
-    </div>
+        <input
+          required
+          class="form-control"
+          #password="ngModel"
+          placeholder="votre mot de passe ici"
+          name="password"
+          [(ngModel)]="utilisateur.password"
+          type="password"
+        />
+        <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+            <div *ngIf="password.errors && password.errors['required']">le password est obligatoire</div>
+           
+        </div>
+      </div>
     <div class="mb-3 text-center">
         <button class="btn btn-primary">Connexion</button>
         <br>

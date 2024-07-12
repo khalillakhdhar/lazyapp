@@ -1,28 +1,74 @@
-<form>
-    <div class="mb-3 text-center">
-        <h2>Inscription</h2>
+<form #signForm="ngForm">
+  <div class="mb-3 text-center">
+    <h2>Inscription</h2>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Nom</label>
+    <input
+      required
+      class="form-control"
+      pattern="[A-Z a-z]{3,20}"
+      name="nom"
+      #nom="ngModel"
+      placeholder="votre nom ici"
+      [(ngModel)]="utilisateur.nom"
+    />
+    <div *ngIf="nom.touched && nom.invalid" class="alert alert-danger">
+        <div *ngIf="nom.errors && nom.errors['required']">le nom est obligatoire</div>
+        <div *ngIf="nom.errors && nom.errors['pattern']">veuillez saisir un  nom correcte!</div>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Nom</label>
-        <input class="form-control" name="nom" placeholder="votre nom ici" [(ngModel)]="utilisateur.nom">
-
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Prénom</label>
+    <input
+      class="form-control"
+      name="prenom"
+      pattern="[A-Z a-z]{3,20}"
+      #prenom="ngModel"
+      placeholder="votre prenom ici"
+      required
+      [(ngModel)]="utilisateur.prenom"
+    />
+    <div *ngIf="prenom.touched && prenom.invalid" class="alert alert-danger">
+        <div *ngIf="prenom.errors && prenom.errors['required']">le prénom est obligatoire</div>
+        <div *ngIf="prenom.errors && prenom.errors['pattern']">veuillez saisir un  prénom correcte!</div>
     </div>
-    <div class="mb-3">
-        <label class="form-label">Prénom</label>
-        <input class="form-control" name="prenom" placeholder="votre prenom ici" [(ngModel)]="utilisateur.prenom">
-
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input
+      class="form-control"
+      placeholder="votre email ici"
+      #email="ngModel"
+      [(ngModel)]="utilisateur.email"
+      name="email"
+      required
+      type="email"
+    />
+    <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+        <div *ngIf="email.errors && email.errors['required']">le email est obligatoire</div>
+       
     </div>
-    <div class="mb-3">
-        <label class="form-label">Email</label>
-        <input class="form-control" placeholder="votre email ici" [(ngModel)]="utilisateur.email" name="email" type="email">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input
+      required
+      class="form-control"
+      #password="ngModel"
+      placeholder="votre mot de passe ici"
+      name="password"
+      [(ngModel)]="utilisateur.password"
+      type="password"
+    />
+    <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+        <div *ngIf="password.errors && password.errors['required']">le password est obligatoire</div>
+       
     </div>
-    <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input class="form-control" placeholder="votre mot de passe ici" name="password"[(ngModel)]="utilisateur.password" type="password">
-    </div>
-    <div class="mb-3 text-center">
-        <button class="btn btn-primary">S'inscrire</button>
-        <br>
-        <a routerLink="../">Se connecter</a>
-    </div>
+  </div>
+  <div class="mb-3 text-center">
+    <button [disabled]="signForm.invalid" class="btn btn-primary">S'inscrire</button>
+    <br />
+    <a routerLink="../">Se connecter</a>
+  </div>
 </form>

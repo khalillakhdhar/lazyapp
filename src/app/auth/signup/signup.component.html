@@ -1,0 +1,28 @@
+<form>
+    <div class="mb-3 text-center">
+        <h2>Inscription</h2>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Nom</label>
+        <input class="form-control" name="nom" placeholder="votre nom ici" [(ngModel)]="utilisateur.nom">
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Prénom</label>
+        <input class="form-control" name="prenom" placeholder="votre prenom ici" [(ngModel)]="utilisateur.prenom">
+
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input class="form-control" placeholder="votre email ici" [(ngModel)]="utilisateur.email" name="email" type="email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input class="form-control" placeholder="votre mot de passe ici" name="password"[(ngModel)]="utilisateur.password" type="password">
+    </div>
+    <div class="mb-3 text-center">
+        <button class="btn btn-primary">S'inscrire</button>
+        <br>
+        <a routerLink="../">Se connecter</a>
+    </div>
+</form>

@@ -1,0 +1,18 @@
+<form>
+    <div class="mb-3 text-center">
+        <h2>Connexion</h2>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input class="form-control" placeholder="votre email ici" [(ngModel)]="utilisateur.email" name="email" type="email">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input class="form-control" placeholder="votre mot de passe ici" name="password"[(ngModel)]="utilisateur.password" type="password">
+    </div>
+    <div class="mb-3 text-center">
+        <button class="btn btn-primary">Connexion</button>
+        <br>
+        <a routerLink="./register">S'inscrire</a>
+    </div>
+</form>

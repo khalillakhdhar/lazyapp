@@ -1,5 +1,3 @@
 # TAF :
-controler la saisie auprés du module auth
-# téléchargez le projet puis dans son dossier
-cd nom_projet 
-npm install
+créer une application angular de gestion des rappel: titre, date
+créer un service qui: ajoute , supprime , affiche les rappels et appeler le dans des composant de votre choix
